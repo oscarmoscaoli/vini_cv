@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P83WJLSZ');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Completo | Vinicius Mortari</title>
+    <meta name="description" content="Assista a todos os trabalhos audiovisuais, motion graphics e produções verticais do editor de vídeo Vinicius Mortari.">
+    <link rel="canonical" href="https://oscarmoscaoli.github.io/vini_cv/portfolio.html">
+    <link rel="icon" href="data:,">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oscarmoscaoli.github.io/vini_cv/portfolio.html">
+    <meta property="og:title" content="Portfólio Completo | Vinicius Mortari">
+    <meta property="og:description" content="Assista a todos os trabalhos audiovisuais, motion graphics e produções verticais.">
+    <meta property="og:image" content="https://oscarmoscaoli.github.io/vini_cv/perfil.png">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P83WJLSZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header class="navbar">
+        <div class="nav-container">
+            <span class="logo">VM<span class="accent">.</span></span>
+            <nav class="nav-links">
+                <a href="index.html" id="back-home">← Voltar para Início</a>
+            </nav>
+            <div class="controls">
+                <button id="lang-toggle" class="btn-secondary">EN</button>
+                <button id="theme-toggle" class="btn-icon">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="portfolio">
+            <h1 class="section-title" id="page-portfolio-title">Portfólio Completo</h1>
+            
+            <div class="video-grid">
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/u_07-iX3cSE" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/w677gJxGtpk" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/IKOVL453Inc" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/OimlVBDlj-g" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/0wDun1YPsx0" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/qpW9JSvvTech" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/2f-5xvDmAp0" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/OyKuP7ICm9Y" allowfullscreen></iframe></div>
+                <div class="video-container"><iframe src="https://www.youtube.com/embed/8KquVuI4Ayg" allowfullscreen></iframe></div>
+            </div>
+        </section>
+
+        <section class="vertical-portfolio">
+            <h2 class="section-title" id="title-vertical">Conteúdo Vertical (Reels / Shorts)</h2>
+            <div class="vimeo-grid">
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1115678721" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1115678838" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1115679079" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1115679170" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1115679136" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1196537079" allowfullscreen></iframe></div>
+                <div class="vimeo-container"><iframe src="https://player.vimeo.com/video/1196536998" allowfullscreen></iframe></div>
+            </div>
+            
+            <div class="see-more-container">
+                <a href="https://www.behance.net/viniciusmortari" target="_blank" class="btn-primary" id="btn-see-more">Veja Mais no Behance</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Vinicius Mortari. Bauru, SP, Brasil.</p>
+    </footer>
+
+    <script>
+        const pageData = {
+            pt: { title: "Portfólio Completo", vertical: "Conteúdo Vertical (Reels / Shorts)", seeMore: "Veja Mais no Behance", back: "← Voltar para Início" },
+            en: { title: "Full Portfolio", vertical: "Vertical Content (Reels / Shorts)", seeMore: "See More on Behance", back: "← Back to Home" }
+        };
+        let lang = 'pt';
+        function translatePage() {
+            const t = pageData[lang];
+            if(document.getElementById('page-portfolio-title')) document.getElementById('page-portfolio-title').textContent = t.title;
+            if(document.getElementById('title-vertical')) document.getElementById('title-vertical').textContent = t.vertical;
+            if(document.getElementById('btn-see-more')) document.getElementById('btn-see-more').textContent = t.seeMore;
+            if(document.getElementById('back-home')) document.getElementById('back-home').textContent = t.back;
+        }
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            lang = lang === 'pt' ? 'en' : 'pt';
+            document.getElementById('lang-toggle').textContent = lang === 'pt' ? 'EN' : 'PT';
+            translatePage();
+        });
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            document.getElementById('theme-toggle').textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

@@ -5,8 +5,9 @@ const data = {
         summary: "Editor de vídeo e motion designer com mais de 13 anos de experiência em produção audiovisual. Atuação em agências, instituições de ensino e empresas de branding, entregando conteúdos institucionais, publicitários e educacionais para diversos formatos.",
         iaText: "✨ Atuação focada em evolução contínua, utilizando ferramentas de Inteligência Artificial para otimização de processos e fluxos de trabalho.",
         btnCv: "Baixar CV (PDF)", cvFile: "CURRICULO VINICIUS MORTARI PT-BR.pdf",
-        portfolio: "Portfólio", verticalTitle: "Conteúdo Vertical (Reels / Shorts)",
-        experience: "Experiência", education: "Educação", seeMore: "Veja Mais no Behance",
+        portfolio: "Portfólio", btnAllVideos: "Ver todos os vídeos",
+        experience: "Experiência", education: "Educação",
+        languagesTitle: "Idiomas", langPt: "🇧🇷 Português (Fluente)", langEn: "🇺🇸 Inglês (Avançado)",
         course: "Bacharelado em Publicidade e Propaganda",
         experiences: [
             { role: "Audiovisual & Branding", company: "Ferrarezi Branding", logo: "frzi.png", period: "Jul 2024 - Atual", desc: "Desenvolvimento de conteúdos audiovisuais para branding e marketing digital. Criação de animações e vídeos institucionais alinhados à marca." },
@@ -21,8 +22,9 @@ const data = {
         summary: "Video editor and motion designer with over 13 years of experience in audiovisual production. Experience working in agencies, educational institutions, and branding companies, delivering institutional, advertising, and educational content for multiple formats.",
         iaText: "✨ Focused on continuous evolution, leveraging Artificial Intelligence tools to optimize processes and post-production workflows.",
         btnCv: "Download CV (PDF)", cvFile: "CURRICULUM VINICIUS MORTARI EN-US.pdf",
-        portfolio: "Portfolio", verticalTitle: "Vertical Content (Reels / Shorts)",
-        experience: "Experience", education: "Education", seeMore: "See More on Behance",
+        portfolio: "Portfolio", btnAllVideos: "View all videos",
+        experience: "Experience", education: "Education",
+        languagesTitle: "Languages", langPt: "🇧🇷 Portuguese (Fluent)", langEn: "🇺🇸 English (Advanced)",
         course: "Bachelor's Degree in Advertising",
         experiences: [
             { role: "Audiovisual & Branding", company: "Ferrarezi Branding", logo: "frzi.png", period: "Jul 2024 - Present", desc: "Developed audiovisual content for branding and digital marketing. Created animations and institutional videos aligned with brand identity." },
@@ -50,11 +52,15 @@ function render() {
     cvBtn.setAttribute('href', t.cvFile);
 
     document.getElementById('title-portfolio').textContent = t.portfolio;
-    document.getElementById('title-vertical').textContent = t.verticalTitle;
-    document.getElementById('btn-see-more').textContent = t.seeMore;
+    if(document.getElementById('btn-all-videos')) document.getElementById('btn-all-videos').textContent = t.btnAllVideos;
     document.getElementById('title-experience').textContent = t.experience;
     document.getElementById('title-education').textContent = t.education;
     document.getElementById('edu-course').textContent = t.course;
+    
+    // Atualização dos Idiomas
+    document.getElementById('title-languages').textContent = t.languagesTitle;
+    document.getElementById('lang-pt').textContent = t.langPt;
+    document.getElementById('lang-en').textContent = t.langEn;
 
     const expList = document.getElementById('experience-list');
     expList.innerHTML = t.experiences.map(exp => `
@@ -74,7 +80,31 @@ function render() {
     `).join('');
 }
 
-// Controles de Idioma e Tema
+// MENU MOBILE ACTIONS
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Idioma e Tema
 document.getElementById('lang-toggle').addEventListener('click', () => {
     currentLang = currentLang === 'pt' ? 'en' : 'pt';
     document.getElementById('lang-toggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
@@ -91,7 +121,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
     }
 });
 
-// Efeito dinâmico de Scroll Reveal (Fade-in ao rolar)
+// Scroll Reveal
 const sections = document.querySelectorAll('.section-fade');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
